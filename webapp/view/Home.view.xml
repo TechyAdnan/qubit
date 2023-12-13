@@ -1,0 +1,66 @@
+<mvc:View controllerName="com.qubit.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:fb="sap.ui.comp.filterbar">
+    <f:DynamicPage id="homepage"
+                   headerExpanded="true"
+                   >
+
+        	<f:title>
+				<f:DynamicPageTitle id="dynTitle">
+					<f:expandedContent>
+						<Label id="expandedLabel" text="No filters active" />
+					</f:expandedContent>
+					<f:snappedContent>
+						<Label id="snappedLabel" text="No filters active" />
+					</f:snappedContent>
+				</f:DynamicPageTitle>
+			</f:title>
+        <f:header>
+            <f:DynamicPageHeader id="header" >
+            <f:content>
+
+                <fb:FilterBar id="filterBar">
+
+                    <fb:filterGroupItems>
+
+                        <fb:FilterGroupItem id="search" name="Search" label="Search" groupName="grp1">
+                            <fb:control>
+                                <SearchField id="searchBox" placeholder="Search Product......" width="20rem"/>
+                            </fb:control>
+                        </fb:FilterGroupItem>
+
+                        <fb:FilterGroupItem id="category" name="Category" label="Category" groupName="grp1">
+                            <fb:control>
+                                <ComboBox   id="dropcategory"
+                                            items="{/Categories}">
+                                    <core:Item id="categoryitem" key="{CategoryID}" text="{CategoryName}" />
+                                </ComboBox>
+                            </fb:control>
+                        </fb:FilterGroupItem>
+
+                        <fb:FilterGroupItem id="supplier" name="Supplier" label="Supplier" groupName="grp1">
+                            <fb:control>
+                                <ComboBox   id="dropsupplier"
+                                            items="{/Suppliers}">
+                                    <core:Item id="supplieritem" key="{SupplierID}" text="{CompanyName}" />
+                                </ComboBox>
+                            </fb:control>
+                        </fb:FilterGroupItem>
+
+                    </fb:filterGroupItems>   
+
+                </fb:FilterBar>
+
+            </f:content>
+                
+            </f:DynamicPageHeader>
+        </f:header>
+
+        <f:content>
+        
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>
